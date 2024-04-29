@@ -70,7 +70,7 @@ class MPSAccelerator(Accelerator):
     @lru_cache(1)
     def is_available() -> bool:
         """MPS is only available on a machine with the ARM-based Apple Silicon processors."""
-        return torch.backends.mps.is_available() and platform.processor() in ("arm", "arm64")
+        return torch.backends.mps.is_available() and platform.machine() in ("arm", "arm64")
 
     @classmethod
     @override
